@@ -1,0 +1,8 @@
+node_modules
+dist
+.env
+*.db
+*.fwl
+*.tgz
+*.log
+package-lock.json
