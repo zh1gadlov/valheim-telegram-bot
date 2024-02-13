@@ -8,9 +8,9 @@ const config = new ConfigService()
 
 export class TelegramService {
   constructor(
-    private bot = new Telegraf(config.get('BOT_TOKEN'))
+    private bot: Telegraf
   ) {
-    this.observer()
+    // this.observer()
     // this.sendBackup()
 
   }
@@ -34,7 +34,7 @@ export class TelegramService {
     })
   }
 
-  private async observer(){
+  async observer(){
 
 
     this.bot.on(message('text'), async (ctx) => {
