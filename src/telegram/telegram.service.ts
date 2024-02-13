@@ -19,7 +19,7 @@ export class TelegramService {
     create(
       {
         file: 'backup/backup.tgz',
-        cwd: process.cwd()+'../.config/unity3d/IronGate/Valheim/worlds_local',
+        cwd: process.cwd()+'/../.config/unity3d/IronGate/Valheim/worlds_local',
         z: true
       },
       ['12312331321.db', '12312331321.fwl']
