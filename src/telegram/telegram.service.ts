@@ -1,4 +1,5 @@
 import { ConfigService } from '../config.service'
+import { CronJob } from 'cron';
 import { Telegraf } from 'telegraf'
 import { message } from 'telegraf/filters'
 import { create } from 'tar'
@@ -8,9 +9,17 @@ const config = new ConfigService()
 
 export class TelegramService {
   constructor(
-    private bot: Telegraf
+    private bot = new Telegraf(config.get('BOT_TOKEN'))
   ) {
-    // this.observer()
+    this.observer()
+    
+    new CronJob(
+      '* * * * * *', // cronTime
+      async () => { await this.sendBackup() },
+      null, // onComplete
+      true, // start
+      'America/Los_Angeles' // timeZone
+    );
     // this.sendBackup()
 
   }
